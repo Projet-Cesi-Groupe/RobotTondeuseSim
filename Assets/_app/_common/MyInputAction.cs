@@ -44,6 +44,15 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""736a6957-cbbe-4760-acd4-cc19e105943a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a827669-54b2-41ca-96ed-08e70cef27d4"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -251,6 +271,7 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
         m_firstPerson = asset.FindActionMap("firstPerson", throwIfNotFound: true);
         m_firstPerson_shoot = m_firstPerson.FindAction("shoot", throwIfNotFound: true);
         m_firstPerson_Rotate = m_firstPerson.FindAction("Rotate", throwIfNotFound: true);
+        m_firstPerson_Move = m_firstPerson.FindAction("Move", throwIfNotFound: true);
         // spectator
         m_spectator = asset.FindActionMap("spectator", throwIfNotFound: true);
         m_spectator_EnableRotate = m_spectator.FindAction("EnableRotate", throwIfNotFound: true);
@@ -319,12 +340,14 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
     private List<IFirstPersonActions> m_FirstPersonActionsCallbackInterfaces = new List<IFirstPersonActions>();
     private readonly InputAction m_firstPerson_shoot;
     private readonly InputAction m_firstPerson_Rotate;
+    private readonly InputAction m_firstPerson_Move;
     public struct FirstPersonActions
     {
         private @MyInputAction m_Wrapper;
         public FirstPersonActions(@MyInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @shoot => m_Wrapper.m_firstPerson_shoot;
         public InputAction @Rotate => m_Wrapper.m_firstPerson_Rotate;
+        public InputAction @Move => m_Wrapper.m_firstPerson_Move;
         public InputActionMap Get() { return m_Wrapper.m_firstPerson; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,6 +363,9 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
         }
 
         private void UnregisterCallbacks(IFirstPersonActions instance)
@@ -350,6 +376,9 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
         }
 
         public void RemoveCallbacks(IFirstPersonActions instance)
@@ -451,6 +480,7 @@ public partial class @MyInputAction: IInputActionCollection2, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface ISpectatorActions
     {
