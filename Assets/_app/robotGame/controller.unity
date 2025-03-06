@@ -221,19 +221,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000005338508
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071067
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000053385072
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -241,11 +241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
       propertyPath: m_Name
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAction: {fileID: -7133770829647185356, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
   moveAction: {fileID: 2849713120665693758, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
-  rotationSpeed: 75
-  verticalAngleBoundaries: {x: -75, y: 75}
+  rotationSpeed: 50
+  verticalAngleBoundaries: {x: 0, y: 0}
   moveSpeed: 80
 --- !u!1 &1437573788 stripped
 GameObject:
@@ -370,7 +370,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &164438695751805601
 MonoBehaviour:
@@ -726,13 +726,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064427559519929320}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1546721, y: 0.689983, z: -0.1546721, w: 0.689983}
-  m_LocalPosition: {x: -2.25, y: 2, z: 0}
+  m_LocalRotation: {x: 0.21873106, y: -0.008515138, z: 0.0019088214, w: 0.97574615}
+  m_LocalPosition: {x: 0, y: 2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1148345784}
-  m_LocalEulerAnglesHint: {x: 25.27, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.27, y: -1, z: 0}
 --- !u!1 &9064427559519929320
 GameObject:
   m_ObjectHideFlags: 0

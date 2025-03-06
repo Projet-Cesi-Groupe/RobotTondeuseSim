@@ -10,7 +10,7 @@ public class RotateCameraBehaviour : MonoBehaviour
     [SerializeField] private float rotationSpeed = 75;
     [SerializeField] private Vector2 verticalAngleBoundaries = new(-75, 75);
 
-    [SerializeField] private float moveSpeed = 5;
+    [SerializeField] private float moveSpeed = 1;
 
     private float m_Yaw;
     private float m_Pitch;
