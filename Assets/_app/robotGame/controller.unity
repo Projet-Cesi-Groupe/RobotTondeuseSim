@@ -254,7 +254,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437573793}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437573792}
   m_SourcePrefab: {fileID: 100100000, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
 --- !u!1 &1148345783
 GameObject:
@@ -265,6 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1148345784}
+  - component: {fileID: 1148345785}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -289,11 +296,82 @@ Transform:
   - {fileID: 1437573791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148345785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148345783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c97ea9860632f4cb437d5f695410c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateAction: {fileID: -7133770829647185356, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
+  moveAction: {fileID: 2849713120665693758, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
+  rotationSpeed: 75
+  verticalAngleBoundaries: {x: -75, y: 75}
+  moveSpeed: 80
+--- !u!1 &1437573788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
+  m_PrefabInstance: {fileID: 529291088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1437573791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
   m_PrefabInstance: {fileID: 529291088}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1437573792
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437573788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6255687079079774844, guid: 6ed086cb7e8cded4b8153d7c54f7a533, type: 3}
+--- !u!54 &1437573793
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437573788}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!114 &164438695751805601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,23 +671,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &7664446213671003763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064427559519929320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c97ea9860632f4cb437d5f695410c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateAction: {fileID: -7133770829647185356, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
-  moveAction: {fileID: 2849713120665693758, guid: b1db16254ee8f1b469f1f867887da669, type: 3}
-  rotationSpeed: 75
-  verticalAngleBoundaries: {x: -75, y: 75}
-  moveSpeed: 80
 --- !u!114 &7787459895575491967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +746,6 @@ GameObject:
   - component: {fileID: 7341546025394070084}
   - component: {fileID: 7787459895575491967}
   - component: {fileID: 1967398616626112896}
-  - component: {fileID: 7664446213671003763}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
