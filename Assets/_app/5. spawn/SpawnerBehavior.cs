@@ -1,25 +1,34 @@
-using System;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SpawnerBehavior : MonoBehaviour
 {
+    [SerializeField] private scoreManager scoreManager;
     [SerializeField] private GameObject container;
     [SerializeField] private GameObject prefabToSpawn;
-    [FormerlySerializedAs("instantiatedRotation")] [SerializeField] private Vector3 spawnRotation;
+    [SerializeField] private float scale;
+    [SerializeField] private float gridSize;
 
-    private async void Awake()
+    [SerializeField] private float spawnX;
+    [SerializeField] private float spawnZ;
+
+
+    private void Awake()
     {
-        await SpawnAfterDelay(2);
-        await SpawnAfterDelay(2);
-        await SpawnAfterDelay(2);
+        Spawn();
     }
 
-    private async Task SpawnAfterDelay(int delayInSeconds = 0)
+    private void Spawn()
     {
-        await Task.Delay(TimeSpan.FromSeconds(delayInSeconds));
-        var instantiatedGameObject = Instantiate(prefabToSpawn, container.transform);
-        instantiatedGameObject.transform.rotation = Quaternion.Euler(spawnRotation);
+        for (int i = 0; i < gridSize; i++)
+        {
+            for (int j = 0; j < gridSize; j++)
+            {
+                var instantiatedGameObject = Instantiate(prefabToSpawn, container.transform);
+                instantiatedGameObject.transform.localScale = new Vector3(scale, scale, scale);
+                instantiatedGameObject.transform.position = new Vector3((i * scale)+spawnX, 0, (j * scale)+spawnZ);
+                var TriggerWithCustomEventBehavior = instantiatedGameObject.GetComponent<TriggerWithCustomEventBehavior>();  
+                scoreManager.triggerWithCustomEventBehaviors.Add(TriggerWithCustomEventBehavior); 
+            }
+        }
     }
 }

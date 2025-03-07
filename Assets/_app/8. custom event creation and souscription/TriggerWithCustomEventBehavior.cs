@@ -9,6 +9,7 @@ public class TriggerWithCustomEventBehavior : MonoBehaviour
     {
         Debug.Log("[TriggerWithCustomEventBehavior] Entered by " + otherCollider.name);
         onTriggerEnterEvent.Invoke();
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerExit(Collider otherCollider)
